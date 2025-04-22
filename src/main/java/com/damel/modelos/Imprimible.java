@@ -9,7 +9,7 @@ package com.damel.modelos;
  * @author borja
  */
 public interface Imprimible {
-    
+
     String devolverInfoString();
-    
+
 }

@@ -9,25 +9,25 @@ package com.damel.modelos;
  * @author borja
  */
 public class CuentaCorrientePersonal extends CuentaCorriente {
-    
+
     private double comisionMantenimiento;
-    
+
     public CuentaCorrientePersonal(String iban, Persona titular, double saldo, String entidadesAutorizadas, double comisionMantenimiento) {
         super(iban, titular, saldo, entidadesAutorizadas);
         this.comisionMantenimiento = comisionMantenimiento;
     }
-    
-    public double getComisionMantenimiento(){
+
+    public double getComisionMantenimiento() {
         return comisionMantenimiento;
     }
-    
+
     @Override
-    public String devolverInfoString(){
+    public String devolverInfoString() {
         return "Cuenta Corriente Personal\nIBAN: " + iban
-                +"\nTitular: " + titular.getNombre() + " " + titular.getApellidos()
-                +"\nSaldo: " + saldo + " €"
-                +"\nComision de Mantenimiento: " + comisionMantenimiento + " €"
-                +"\nEntidades Autorizadas: " + entidadesAutorizadas;
+                + "\nTitular: " + titular.getNombre() + " " + titular.getApellidos()
+                + "\nSaldo: " + saldo + " €"
+                + "\nComision de Mantenimiento: " + comisionMantenimiento + " €"
+                + "\nEntidades Autorizadas: " + entidadesAutorizadas;
     }
-    
+
 }
