@@ -48,7 +48,7 @@ public class Banco {
                 return cuentas[i].devolverInfoString();
             }
         }
-        return "Cuenta no encontrada";
+        return null;
     }
 
     public boolean ingresoCuenta(String iban, double cantidad) {
