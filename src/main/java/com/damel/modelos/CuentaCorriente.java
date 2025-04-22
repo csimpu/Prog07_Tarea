@@ -8,6 +8,16 @@ package com.damel.modelos;
  *
  * @author borja
  */
-public class CuentaCorriente {
+public abstract class CuentaCorriente extends CuentaBancaria{
+    protected String entidadesAutorizadas;
     
+    public CuentaCorriente(String iban, Persona titular, double saldo, String entidadesAutorizadas){
+        super(iban, titular, saldo);
+        this.entidadesAutorizadas = entidadesAutorizadas;
+    }
+
+    public String getEntidadesAutorizadas() {
+        return entidadesAutorizadas;
+    }
+       
 }
