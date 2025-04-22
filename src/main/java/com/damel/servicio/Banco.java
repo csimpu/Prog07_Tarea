@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.damel.modelos;
+package com.damel.servicio;
 
 /**
  * Programación DAM Modalidad Virtual
@@ -12,6 +12,6 @@ package com.damel.modelos;
  *
  * @author Borja Piñero
  */
-public class Cuentas {
+public class Banco {
 
 }

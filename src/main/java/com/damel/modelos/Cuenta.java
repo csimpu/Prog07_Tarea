@@ -12,6 +12,6 @@ package com.damel.modelos;
  *
  * @author Borja Piñero
  */
-public class Banco {
+public class Cuenta {
 
 }
