@@ -6,7 +6,7 @@ package com.damel.interfaces;
 
 /**
  * Define la interfaz {@code Imprimible}, con el metodo devolverInfoString que
- * deben implementar las demas clases.<br><br>
+ * deben implementar las demás clases.<br><br>
  * 
  * Programación DAM Modalidad Virtual - Curso 2024/2025
  * 
