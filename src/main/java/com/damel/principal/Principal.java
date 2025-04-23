@@ -5,6 +5,7 @@ package com.damel.principal;
 
 import com.damel.objetos.*;
 import com.damel.banco.*;
+import com.damel.utilidades.*;
 import java.util.Scanner;
 
 /**
@@ -247,6 +248,10 @@ public class Principal {
             System.out.println("No hay espacio para mas cuentas");
         }
 
+        System.out.println("*************************************");
+
+        Utilidades.enterParaSalir();
+
     }
 
     private static void listarCuentas() {
@@ -263,6 +268,10 @@ public class Principal {
                 System.out.println(cuenta);
             }
         }
+
+        System.out.println("*************************************");
+
+        Utilidades.enterParaSalir();
     }
 
     private static void informacionCuenta() {
@@ -278,6 +287,10 @@ public class Principal {
         } else {
             System.out.println(datos);
         }
+        
+        System.out.println("*************************************");
+
+        Utilidades.enterParaSalir();
     }
 
     private static void ingresarSaldo() {
@@ -304,6 +317,10 @@ public class Principal {
         } else {
             System.out.println("Ingreso no realizado");
         }
+        
+        System.out.println("*************************************");
+
+        Utilidades.enterParaSalir();
     }
 
     private static void retirarSaldo() {
@@ -333,6 +350,10 @@ public class Principal {
         } else {
             System.out.println("No se ha realizado la retirada");
         }
+        
+        System.out.println("*************************************");
+
+        Utilidades.enterParaSalir();
     }
 
     private static void consultarSaldo() {
@@ -347,6 +368,10 @@ public class Principal {
         } else {
             System.out.println("Tiene un saldo de " + saldo + " Eur");
         }
+        
+        System.out.println("*************************************");
+
+        Utilidades.enterParaSalir();
     }
 
     private static void mostrarAyuda() {
@@ -364,5 +389,6 @@ public class Principal {
         System.out.println("[6] - Permite consultar el saldo de ");
         System.out.println("      la cuenta seleccionada");
         System.out.println("*************************************");
+        Utilidades.enterParaSalir();
     }
 }
