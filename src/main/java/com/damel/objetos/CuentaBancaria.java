@@ -39,9 +39,8 @@ public abstract class CuentaBancaria implements Imprimible {
         if (saldo >= cantidad) {
             saldo -= cantidad;
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     // Getters del objeto CuentaBancaria
