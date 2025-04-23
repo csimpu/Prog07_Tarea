@@ -26,15 +26,15 @@ public class Principal {
                 opcion = Integer.parseInt(entrada.nextLine());
                 switch (opcion) {
                     case 1 ->
-                        abrirNuevaCuenta();
+                        nuevaCuenta();
                     case 2 ->
                         listarCuentas();
                     case 3 ->
-                        informacionCuentas();
+                        informacionCuenta();
                     case 4 ->
-                        realizarIngreso();
+                        ingresarSaldo();
                     case 5 ->
-                        realizarRetirada();
+                        retirarSaldo();
                     case 6 ->
                         consultarSaldo();
                     case 7 ->
@@ -68,7 +68,7 @@ public class Principal {
         System.out.print("Introduce una opcion: ");
     }
 
-    private static void abrirNuevaCuenta() {
+    private static void nuevaCuenta() {
         System.out.println("*************************************");
         System.out.println("*           Nueva cuenta            *");
         System.out.println("*************************************");
@@ -90,7 +90,7 @@ public class Principal {
         }
     }
 
-    private static void informacionCuentas() {
+    private static void informacionCuenta() {
         System.out.println("*************************************");
         System.out.println("*      Informacion de cuentas       *");
         System.out.println("*************************************");
@@ -105,7 +105,7 @@ public class Principal {
         }
     }
 
-    private static void realizarIngreso() {
+    private static void ingresarSaldo() {
 
         boolean entradaValida = false;
         double ingreso = 0;
@@ -120,6 +120,7 @@ public class Principal {
             System.out.print("Introduce la cantidad: ");
             try {
                 ingreso = Double.parseDouble(entrada.nextLine());
+                entradaValida = true;
             } catch (NumberFormatException eNFE) {
                 System.err.println("Error: Debes introducir un numero");
             }
@@ -131,16 +132,45 @@ public class Principal {
         }
     }
 
-    private static void realizarRetirada() {
+    private static void retirarSaldo() {
+
+        boolean entradaValida = false;
+        double retirada = 0;
+
         System.out.println("*************************************");
         System.out.println("*         Realizar retirada         *");
         System.out.println("*************************************");
+        System.out.println("Introduce el IBAN de la cuenta:");
+        String iban = entrada.nextLine();
+
+        while (!entradaValida) {
+            try {
+                retirada = Double.parseDouble(entrada.nextLine());
+                entradaValida = true;
+            } catch (NumberFormatException eNFE) {
+                System.err.println("Error: Debes introducir un numero");
+            }
+        }
+        if (banco.retiradaCuenta(iban, retirada)) {
+            System.out.println("Retirada de efectivo realizada");
+
+        } else {
+            System.out.println("No se ha realizado la retirada");
+        }
     }
 
     private static void consultarSaldo() {
         System.out.println("*************************************");
         System.out.println("*         Consulta de saldo         *");
         System.out.println("*************************************");
+        System.out.println("Introduce el IBAN de la cuenta:");
+        String iban = entrada.nextLine();
+        double saldo = banco.obtenerSaldo(iban);
+        if (saldo == -1) {
+            System.out.println("No existe la cuenta");
+        } else {
+            System.out.println("Tiene un saldo de " + saldo + " €");
+        }
     }
 
     private static void mostrarAyuda() {
