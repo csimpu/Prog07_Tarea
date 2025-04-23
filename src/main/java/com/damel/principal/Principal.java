@@ -3,8 +3,8 @@
  */
 package com.damel.principal;
 
-import com.damel.modelos.*;
-import com.damel.servicio.Banco;
+import com.damel.objetos.*;
+import com.damel.banco.*;
 import java.util.Scanner;
 
 /**
@@ -20,7 +20,7 @@ public class Principal {
         int opcion;
 
         do {
-            mostrarMenu();
+            menuGestorCuentas();
 
             try {
                 opcion = Integer.parseInt(entrada.nextLine());
@@ -53,7 +53,7 @@ public class Principal {
         entrada.close();
     }
 
-    private static void mostrarMenu() {
+    private static void menuGestorCuentas() {
         System.out.println("*************************************");
         System.out.println("*         Gestor de cuentas         *");
         System.out.println("*************************************");
@@ -68,10 +68,185 @@ public class Principal {
         System.out.print("Introduce una opcion: ");
     }
 
+    private static void submenuTipoCuenta() {
+        System.out.println("*************************************");
+        System.out.println("*          Tipo de cuenta           *");
+        System.out.println("*************************************");
+        System.out.println("[1] - Cuenta de Ahorro");
+        System.out.println("[2] - Cuenta Corriente Personal");
+        System.out.println("[3] - Cuenta Corriente de Empresa");
+        System.out.println("*************************************");
+        System.out.print("Introduce una opcion: ");
+    }
+
     private static void nuevaCuenta() {
         System.out.println("*************************************");
         System.out.println("*           Nueva cuenta            *");
         System.out.println("*************************************");
+
+        // Datos personales
+        System.out.print("Introduce el nombre: ");
+        String nombre = entrada.nextLine();
+        System.out.print("Introduce los apellidos: ");
+        String apellidos = entrada.nextLine();
+        System.out.print("Introduce el DNI: ");
+        String dni = entrada.nextLine();
+        Persona titular = new Persona(nombre, apellidos, dni);
+
+        //Saldo inicial
+        double saldo;
+        System.out.print("Introduce el saldo inicial: ");
+
+        while (true) {
+            try {
+                saldo = Double.parseDouble(entrada.nextLine());
+                break;
+            } catch (NumberFormatException eNFE) {
+                System.err.println("Error: Debes introducir un número.");
+            }
+        }
+
+        // IBAN cuenta
+        String iban;
+        String regExIban = "ES\\d{20}";
+        do {
+            System.out.println("Introduce el IBAN de la cuenta.");
+            System.out.println("El formato es ES12345678901234567890");
+            iban = entrada.nextLine();
+        } while (!iban.matches(regExIban));
+
+        // Submenú selección de cuenta
+        int opcion;
+
+        submenuTipoCuenta();
+        while (true) {
+            try {
+                opcion = Integer.parseInt(entrada.nextLine());
+                break;
+            } catch (NumberFormatException eNFE) {
+                System.err.println("Error: Debes introducir un número.");
+                opcion = 0;
+            }
+        }
+        CuentaBancaria cuenta = null;
+        switch (opcion) {
+            case 1 -> {
+
+                double tipoAnual;
+
+                System.out.println("*************************************");
+                System.out.println("*          Cuenta de Ahorro         *");
+                System.out.println("*************************************");
+                System.out.println("Introduce el tipo de interes anual:");
+
+                while (true) {
+                    try {
+                        tipoAnual = Double.parseDouble(entrada.nextLine());
+                        break;
+                    } catch (NumberFormatException eFNE) {
+                        System.err.println("Error: Debes introducir un número.");
+                        tipoAnual = 0;
+
+                    }
+                }
+                cuenta = new CuentaAhorro(iban, titular, saldo, tipoAnual);
+            }
+            case 2 -> {
+
+                double comisionMantenimiento;
+
+                System.out.println("*************************************");
+                System.out.println("*     Cuenta Corriente Personal     *");
+                System.out.println("*************************************");
+                System.out.println("Introduce las entidades autorizadas.");
+                System.out.println("Deben estar separadas por comas.");
+                String entidades = entrada.nextLine();
+                System.out.println("Introduce la comision de");
+                System.out.println("mantenimiento anual");
+
+                while (true) {
+                    try {
+                        comisionMantenimiento = Double.parseDouble(entrada.nextLine());
+                        break;
+                    } catch (NumberFormatException eFNE) {
+                        System.err.println("Error: Debes introducir un número.");
+                        comisionMantenimiento = 0;
+
+                    }
+                }
+
+                cuenta = new CuentaCorrientePersonal(iban, titular, saldo, entidades, comisionMantenimiento);
+
+            }
+
+            case 3 -> {
+
+                double maxDescubierto,
+                        interesDescubierto,
+                        comisionDescubierto;
+
+                System.out.println("*************************************");
+                System.out.println("*    Cuenta Corriente de Empresa    *");
+                System.out.println("*************************************");
+                System.out.println("Introduce las entidades autorizadas.");
+                System.out.println("Deben estar separadas por comas.");
+                String entidades = entrada.nextLine();
+                System.out.println("Introduce el descubierto maximo");
+                System.out.println("permitido: ");
+
+                while (true) {
+                    try {
+                        maxDescubierto = Double.parseDouble(entrada.nextLine());
+                        break;
+                    } catch (NumberFormatException eFNE) {
+                        System.err.println("Error: Debes introducir un número.");
+                        maxDescubierto = 0;
+
+                    }
+                }
+
+                System.out.println("Introduce el tipo de interes por");
+                System.out.println("descubierto:");
+
+                while (true) {
+                    try {
+                        interesDescubierto = Double.parseDouble(entrada.nextLine());
+                        break;
+                    } catch (NumberFormatException eFNE) {
+                        System.err.println("Error: Debes introducir un número.");
+                        interesDescubierto = 0;
+
+                    }
+                }
+
+                System.out.println("Introduce la comision fija por");
+                System.out.println("descubierto:");
+
+                while (true) {
+                    try {
+                        comisionDescubierto = Double.parseDouble(entrada.nextLine());
+                        break;
+                    } catch (NumberFormatException eFNE) {
+                        System.err.println("Error: Debes introducir un número.");
+                        comisionDescubierto = 0;
+
+                    }
+                }
+
+                cuenta = new CuentaCorrienteEmpresa(iban, titular, saldo, entidades, interesDescubierto, maxDescubierto, comisionDescubierto);
+
+            }
+
+            default ->
+                System.out.println("Tipo de cuenta no valido");
+        }
+
+        if (banco.abrirCuenta(cuenta)) {
+            System.out.println("Cuenta abierta con exito");
+        } else {
+            System.out.println("No hay espacio para mas cuentas");
+        }
+
     }
 
     private static void listarCuentas() {
@@ -92,7 +267,7 @@ public class Principal {
 
     private static void informacionCuenta() {
         System.out.println("*************************************");
-        System.out.println("*      Informacion de cuentas       *");
+        System.out.println("*     Informacion de la cuenta      *");
         System.out.println("*************************************");
         System.out.println("Introduce el IBAN de la cuenta:");
         String iban = entrada.nextLine();
@@ -107,7 +282,6 @@ public class Principal {
 
     private static void ingresarSaldo() {
 
-        boolean entradaValida = false;
         double ingreso = 0;
 
         System.out.println("*************************************");
@@ -116,11 +290,11 @@ public class Principal {
         System.out.println("Introduce el IBAN de la cuenta:");
         String iban = entrada.nextLine();
 
-        while (!entradaValida) {
+        while (true) {
             System.out.print("Introduce la cantidad: ");
             try {
                 ingreso = Double.parseDouble(entrada.nextLine());
-                entradaValida = true;
+                break;
             } catch (NumberFormatException eNFE) {
                 System.err.println("Error: Debes introducir un numero");
             }
@@ -134,7 +308,6 @@ public class Principal {
 
     private static void retirarSaldo() {
 
-        boolean entradaValida = false;
         double retirada = 0;
 
         System.out.println("*************************************");
@@ -143,10 +316,13 @@ public class Principal {
         System.out.println("Introduce el IBAN de la cuenta:");
         String iban = entrada.nextLine();
 
-        while (!entradaValida) {
+        while (true) {
+
+            System.out.print("Introduce la cantidad: ");
+
             try {
                 retirada = Double.parseDouble(entrada.nextLine());
-                entradaValida = true;
+                break;
             } catch (NumberFormatException eNFE) {
                 System.err.println("Error: Debes introducir un numero");
             }
