@@ -25,8 +25,8 @@ public class CuentaCorrientePersonal extends CuentaCorriente {
     public String devolverInfoString() {
         return "Cuenta Corriente Personal\nIBAN: " + iban
                 + "\nTitular: " + titular.getNombre() + " " + titular.getApellidos()
-                + "\nSaldo: " + saldo + " €"
-                + "\nComision de Mantenimiento: " + comisionMantenimiento + " €"
+                + "\nSaldo: " + saldo + " Eur"
+                + "\nComision de Mantenimiento: " + comisionMantenimiento + " Eur"
                 + "\nEntidades Autorizadas: " + entidadesAutorizadas;
     }
 

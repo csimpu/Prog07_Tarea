@@ -25,7 +25,7 @@ public class CuentaAhorro extends CuentaBancaria {
     public String devolverInfoString() {
         return "Cuenta Ahorro\nIBAN: " + iban
                 + "\nTitular: " + titular.getNombre() + " " + titular.getApellidos()
-                + "\nSaldo: " + saldo + " €"
+                + "\nSaldo: " + saldo + " Eur"
                 + "\nTipo de interes anual: " + interesAnual + "%";
     }
 

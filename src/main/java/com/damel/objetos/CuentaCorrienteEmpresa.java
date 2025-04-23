@@ -37,10 +37,10 @@ public class CuentaCorrienteEmpresa extends CuentaCorriente {
     public String devolverInfoString() {
         return "Cuenta Corriente Personal\nIBAN: " + iban
                 + "\nTitular: " + titular.getNombre() + " " + titular.getApellidos()
-                + "\nSaldo: " + saldo + " €"
-                + "\nMaximo descubierto: " + maxDescubierto + " €"
+                + "\nSaldo: " + saldo + " Eur"
+                + "\nMaximo descubierto: " + maxDescubierto + " Eur"
                 + "\nInterés por descubierto: " + interesDescubierto + "%"
-                + "\nComision por descubieto: " + comisionDescubierto + " €"
+                + "\nComision por descubieto: " + comisionDescubierto + " Eur"
                 + "\nEntidades Autorizadas: " + entidadesAutorizadas;
     }
 

@@ -345,7 +345,7 @@ public class Principal {
         if (saldo == -1) {
             System.out.println("No existe la cuenta");
         } else {
-            System.out.println("Tiene un saldo de " + saldo + " €");
+            System.out.println("Tiene un saldo de " + saldo + " Eur");
         }
     }
 
