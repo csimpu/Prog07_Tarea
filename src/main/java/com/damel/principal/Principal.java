@@ -102,7 +102,7 @@ public class Principal {
                 saldo = Double.parseDouble(entrada.nextLine());
                 break;
             } catch (NumberFormatException eNFE) {
-                System.err.println("Error: Debes introducir un número.");
+                System.err.println("Error: Debes introducir un numero.");
             }
         }
 
@@ -124,7 +124,7 @@ public class Principal {
                 opcion = Integer.parseInt(entrada.nextLine());
                 break;
             } catch (NumberFormatException eNFE) {
-                System.err.println("Error: Debes introducir un número.");
+                System.err.println("Error: Debes introducir un numero.");
                 opcion = 0;
             }
         }
@@ -144,7 +144,7 @@ public class Principal {
                         tipoAnual = Double.parseDouble(entrada.nextLine());
                         break;
                     } catch (NumberFormatException eFNE) {
-                        System.err.println("Error: Debes introducir un número.");
+                        System.err.println("Error: Debes introducir un numero.");
                         tipoAnual = 0;
 
                     }
@@ -169,7 +169,7 @@ public class Principal {
                         comisionMantenimiento = Double.parseDouble(entrada.nextLine());
                         break;
                     } catch (NumberFormatException eFNE) {
-                        System.err.println("Error: Debes introducir un número.");
+                        System.err.println("Error: Debes introducir un numero.");
                         comisionMantenimiento = 0;
 
                     }
@@ -199,7 +199,7 @@ public class Principal {
                         maxDescubierto = Double.parseDouble(entrada.nextLine());
                         break;
                     } catch (NumberFormatException eFNE) {
-                        System.err.println("Error: Debes introducir un número.");
+                        System.err.println("Error: Debes introducir un numero.");
                         maxDescubierto = 0;
 
                     }
@@ -213,7 +213,7 @@ public class Principal {
                         interesDescubierto = Double.parseDouble(entrada.nextLine());
                         break;
                     } catch (NumberFormatException eFNE) {
-                        System.err.println("Error: Debes introducir un número.");
+                        System.err.println("Error: Debes introducir un numero.");
                         interesDescubierto = 0;
 
                     }
@@ -227,7 +227,7 @@ public class Principal {
                         comisionDescubierto = Double.parseDouble(entrada.nextLine());
                         break;
                     } catch (NumberFormatException eFNE) {
-                        System.err.println("Error: Debes introducir un número.");
+                        System.err.println("Error: Debes introducir un numero.");
                         comisionDescubierto = 0;
 
                     }
@@ -355,7 +355,7 @@ public class Principal {
         System.out.println("*************************************");
         System.out.println("[1] - Anade una nueva cuenta");
         System.out.println("[2] - Lista las cuentas del banco");
-        System.out.println("[3] - Muestra información de la");
+        System.out.println("[3] - Muestra informacion de la");
         System.out.println("      cuenta seleccionada");
         System.out.println("[4] - Permite realizar un ingreso en");
         System.out.println("      la cuenta seleccionada");
