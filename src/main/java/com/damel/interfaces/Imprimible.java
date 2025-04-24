@@ -14,6 +14,10 @@ package com.damel.interfaces;
  */
 public interface Imprimible {
 
+    /**
+     * String con la infromación del objeto
+     * @return devuelve una {@code String} con los datos del objeto.
+     */
     String devolverInfoString();
 
 }

@@ -45,7 +45,7 @@ public class CuentaCorrientePersonal extends CuentaCorriente {
      * Sobreescribe el metodo abstracto devolverInfoString de la clase padre que
      * implementa la interfaz Imprimible
      * @return devuelve una {@code String} con la información de la cuenta
-     * @see Imprimible
+     * @see com.damel.interfaces.Imprimible
      * @see CuentaBancaria#devolverInfoString() 
      */
     @Override

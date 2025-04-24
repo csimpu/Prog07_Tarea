@@ -79,7 +79,7 @@ public class CuentaCorrienteEmpresa extends CuentaCorriente {
      * @param cantidad La cantidad que se retira.
      * @return si el saldo de la cuenta más el descubierto máximo es mayor o igual
      * que la cantidad a retirar, hace la retirada y devuelve {@code true}.<br>
-     * devuelve {@code false) si la cantidad a retirar es mayor que el saldo en
+     * devuelve {@code false} si la cantidad a retirar es mayor que el saldo en
      * la cuenta más la cantidad {@code maxDescubierto}.
      */
     @Override
@@ -94,7 +94,7 @@ public class CuentaCorrienteEmpresa extends CuentaCorriente {
      * Sobreescribe el metodo abstracto devolverInfoString de la clase padre que
      * implementa la interfaz Imprimible
      * @return devuelve una {@code String} con la información de la cuenta
-     * @see Imprimible
+     * @see com.damel.interfaces.Imprimible
      * @see CuentaBancaria#devolverInfoString() 
      */
     @Override
