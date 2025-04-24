@@ -50,7 +50,7 @@ public abstract class CuentaBancaria implements Imprimible {
      * @param cantidad La cantidad que se retira.
      * @return si el saldo de la cuenta es mayor o igual que la cantidad a retirar, 
      * hace la retirada y devuelve {@code true}.<br>
-     * devuelve {@code false) si la cantidad a retirar es mayor que el saldo en
+     * devuelve {@code false)} si la cantidad a retirar es mayor que el saldo en
      * la cuenta.
      */
     public boolean retirar(double cantidad) {
