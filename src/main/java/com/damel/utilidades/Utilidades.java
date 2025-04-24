@@ -7,9 +7,10 @@ package com.damel.utilidades;
 import java.util.Scanner;
 
 /**
- * Programación DAM Modalidad Virtual
- *
- * Curso 2024/2025
+ * Clase que contiene métodos que realizan tareas no relacionadas con la tarea
+ * principal del programa.
+ * 
+ * Programación DAM Modalidad Virtual - Curso 2024/2025
  *
  * @author Borja Piñero
  */
@@ -30,26 +31,6 @@ public class Utilidades {
         System.out.println();
 
         entrada.nextLine();
-
-    }
-
-    /**
-     * Algoritmo que obtiene la letra de DNI que le corresponde a un numero de DNI
-     * 
-     * @param dni El DNI del que se va a calcular la letra
-     * @return devuelve la letra correspondiente a esa numeracion
-     */
-    public static String calcularLetraDni(String dni) {
-        String[] letraDni = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D",
-            "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
-
-        String dniSinLetra = dni.substring(0, 8);
-
-        int numDni = Integer.parseInt(dniSinLetra);
-
-        int posicionTabla = numDni % 23;
-
-        return letraDni[posicionTabla];
 
     }
 
