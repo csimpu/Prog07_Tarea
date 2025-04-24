@@ -9,14 +9,25 @@ import com.damel.utilidades.*;
 import java.util.Scanner;
 
 /**
+ * La clase que gestiona el menú principal del programa<br><br>
  *
- * @author borja
+ * Programación DAM Modalidad Virtual - Curso 2024/2025
+ *
+ * @author Borja Piñero
  */
 public class Principal {
 
     private static Banco banco = new Banco();
     private static Scanner entrada = new Scanner(System.in);
 
+    /**
+     * Metodo main de la clase.<br>
+     * 
+     * Inicia el programa, muestra el menú principal y procesa las opciones
+     * seleccionadas
+     * 
+     * @param args No utilizado.
+     */
     public static void main(String[] args) {
         int opcion;
 
@@ -54,6 +65,9 @@ public class Principal {
         entrada.close();
     }
 
+    /**
+     * Muestra el menú principal de consola.
+     */
     private static void menuGestorCuentas() {
         System.out.println("*************************************");
         System.out.println("*         Gestor de cuentas         *");
@@ -69,6 +83,9 @@ public class Principal {
         System.out.print("Introduce una opcion: ");
     }
 
+    /**
+     * Muestra el submenú de Tipo de Cuenta.
+     */
     private static void submenuTipoCuenta() {
         System.out.println("*************************************");
         System.out.println("*          Tipo de cuenta           *");
@@ -80,6 +97,10 @@ public class Principal {
         System.out.print("Introduce una opcion: ");
     }
 
+    /**
+     * Muestra el menú Nueva cuenta y crea la nueva cuenta dentro del tipo
+     * que le corresponde.
+     */
     private static void nuevaCuenta() {
         System.out.println("*************************************");
         System.out.println("*           Nueva cuenta            *");
@@ -254,6 +275,9 @@ public class Principal {
 
     }
 
+    /**
+     * Muestra el menú Listado de cuentas e implementa el método listadoCuentas
+     */
     private static void listarCuentas() {
         System.out.println("*************************************");
         System.out.println("*        Listado de cuentas         *");
@@ -274,6 +298,10 @@ public class Principal {
         Utilidades.enterParaSalir();
     }
 
+    /**
+     * Muestra el menú Información de la cuenta e implementa el método 
+     * informacionCuenta
+     */
     private static void informacionCuenta() {
         System.out.println("*************************************");
         System.out.println("*     Informacion de la cuenta      *");
@@ -293,6 +321,9 @@ public class Principal {
         Utilidades.enterParaSalir();
     }
 
+    /**
+     * Muestra el menú Realizar ingreso e implementa el método ingresoCuenta
+     */
     private static void ingresarSaldo() {
 
         double ingreso = 0;
@@ -323,6 +354,9 @@ public class Principal {
         Utilidades.enterParaSalir();
     }
 
+    /**
+     * Muestra el menú Realizar retirada e implementa el método retiradaCuenta.
+     */
     private static void retirarSaldo() {
 
         double retirada = 0;
@@ -356,6 +390,9 @@ public class Principal {
         Utilidades.enterParaSalir();
     }
 
+    /**
+     * Muestra el menú Consulta de saldo e implementa el método obtenerSaldo.
+     */
     private static void consultarSaldo() {
         System.out.println("*************************************");
         System.out.println("*         Consulta de saldo         *");
@@ -374,6 +411,9 @@ public class Principal {
         Utilidades.enterParaSalir();
     }
 
+    /**
+     * Muestra el menú de ayuda.
+     */
     private static void mostrarAyuda() {
         System.out.println("*************************************");
         System.out.println("*               Ayuda               *");
